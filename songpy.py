@@ -1,3 +1,5 @@
+#!/usr/bin/env python2.7
+
 from google import search
 from os import system
 
