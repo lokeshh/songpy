@@ -2,9 +2,16 @@
 
 from google import search
 from os import system
+import sys
 
-song_name = raw_input('Enter song name: ')
-video = raw_input('Do you want video? (y/n): ') == 'y'
+sys.argv.pop(0)
+if sys.argv[0] == '-v':
+	video = True
+	sys.argv.pop(0)
+else:
+	video = False
+
+song_name = ' '.join(sys.argv)
 result = search(song_name).next()
 if video:
 	system('youtube-dl ' + result)
